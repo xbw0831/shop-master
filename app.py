@@ -14,10 +14,25 @@ def index():
     categorys = db.fetchall(sql)
 
     db = MysqlUtil()
-    sql = 'SELECT * FROM product_temp'
-    products = db.fetchall(sql)  # 获取多条记录
-    print(products)
-    return render_template("index.html",categorys=categorys,products=products)
+    sql = 'SELECT * FROM product_temp  WHERE uid >=1  AND uid <=5 '
+    products1 = db.fetchall(sql)  # 获取多条记录
+    print(products1)
+
+    db = MysqlUtil()
+    sql = 'SELECT * FROM product_temp  WHERE uid >=6  AND uid <=10 '
+    products2 = db.fetchall(sql)  # 获取多条记录
+    print(products2)
+
+    db = MysqlUtil()
+    sql = 'SELECT * FROM product_temp  WHERE uid >=11  AND uid <=15 '
+    products3 = db.fetchall(sql)  # 获取多条记录
+    print(products3)
+
+    db = MysqlUtil()
+    sql = 'SELECT * FROM product_temp  WHERE uid >=16  AND uid <=20 '
+    products4 = db.fetchall(sql)  # 获取多条记录
+    print(products4)
+    return render_template("index.html", categorys=categorys, products1=products1, products2=products2,products3=products3,products4=products4)
 
 @app.route('/bashboard')
 def bashboard():
@@ -218,4 +233,4 @@ def logout():
     session.clear() # 清除Session
     return redirect(url_for('index'))
 
-app.run(debug=True)
+app.run(debug=True, port=8000)

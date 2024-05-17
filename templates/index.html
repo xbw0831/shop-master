@@ -5,7 +5,7 @@
     {% block head %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title %}{% endblock %}MMall商城</title>
+    <title>{% block title %}{% endblock %}我的商城</title>
     <link rel="stylesheet" href="static/css/nav.css">
     <link rel="stylesheet" href="static/css/footer.css">
     <link rel="stylesheet" href="static/css/header.css">
@@ -66,10 +66,10 @@
                 <a class="link" href="./bashboard">商品管理</a>
             </li>
             <li class="nav-item">
-                <a class="link" href="./user-center.html">我的MMall</a>
+                <a class="link" href="./user-center.html">我的商城</a>
             </li>
             <li class="nav-item">
-                <a class="link" href="./about.html">关于MMall</a>
+                <a class="link" href="./about.html">关于商城</a>
             </li>
             {% if session['logged_in'] %}
                  <li class="nav-item">
@@ -98,7 +98,7 @@
 <!--header-->
 <div class="header">
     <div class="w">
-        <a class="logo" href="./index.html">MMall</a>
+        <a class="logo" href="./index.html">商城</a>
         <div class="search-con">
             <input class="search-input" id="search-input" placeholder="请输入商品名称"/>
             <button class="btn search-btn" id="search-btn">搜索</button>
@@ -181,7 +181,7 @@
             <div class="floor-wrap">
                 <h1 class="floor-title">F1 家用电器</h1>
                 <ul class="floor-list">
-                    {% for one_product in products %}
+                    {% for one_product in products1 %}
                     <li class="floor-item">
                         <a href="./list.html?categoryId=100006">
                             <span class="floor-text">{{ one_product.pname}}</span>
@@ -216,17 +216,17 @@
                 </ul>
             </div>
 
-<!--            <div class="floor-wrap">-->
-<!--                <h1 class="floor-title">F2 数码3C</h1>-->
-<!--                <ul class="floor-list">-->
-<!--                    {% for one_product in products %}-->
-<!--                    <li class="floor-item">-->
-<!--                        <a href="./list.html?categoryId=100011">-->
-<!--                            <span class="floor-text">{{ one_product.pname}}</span>-->
-<!--                            <img class="floor-img" src="{{ one_product.images}}" alt="笔记本电脑" />-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    {% endfor %}-->
+            <div class="floor-wrap">
+                <h1 class="floor-title">F2 数码3C</h1>
+                <ul class="floor-list">
+                    {% for one_product in products2 %}
+                    <li class="floor-item">
+                        <a href="./list.html?categoryId=100011">
+                            <span class="floor-text">{{ one_product.pname}}</span>
+                            <img class="floor-img" src="{{ one_product.images}}" alt="笔记本电脑" />
+                        </a>
+                    </li>
+                    {% endfor %}
 <!--                    <li class="floor-item">-->
 <!--                        <a href="./list.html?categoryId=100012">-->
 <!--                            <span class="/floor-text">手机</span>-->
@@ -251,17 +251,19 @@
 <!--                            <img class="floor-img" src="static/image/floor/floor2-5.jpg" alt="3C配件" />-->
 <!--                        </a>-->
 <!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--            <div class="floor-wrap">-->
-<!--                <h1 class="floor-title">F3 服装箱包</h1>-->
-<!--                <ul class="floor-list">-->
-<!--                    <li class="floor-item">-->
-<!--                        <a href="./list.html?categoryId=100016">-->
-<!--                            <span class="floor-text">女装</span>-->
-<!--                            <img class="floor-img" src="static/image/floor/floor3-1.jpg" alt="女装" />-->
-<!--                        </a>-->
-<!--                    </li>-->
+                </ul>
+            </div>
+            <div class="floor-wrap">
+                <h1 class="floor-title">F3 服装箱包</h1>
+                <ul class="floor-list">
+                    {% for one_product in products3 %}
+                    <li class="floor-item">
+                        <a href="./list.html?categoryId=100016">
+                            <span class="floor-text">{{ one_product.pname}}</span>
+                            <img class="floor-img" src="{{ one_product.images}}" alt="女装" />
+                        </a>
+                    </li>
+                    {% endfor %}
 <!--                    <li class="floor-item">-->
 <!--                        <a href="./list.html?categoryId=100017">-->
 <!--                            <span class="floor-text">帽子专区</span>-->
@@ -286,41 +288,43 @@
 <!--                            <img class="floor-img" src="static/image/floor/floor3-5.jpg" alt="保暖内衣" />-->
 <!--                        </a>-->
 <!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
+                </ul>
+            </div>
             <div class="floor-wrap">
                 <h1 class="floor-title">F4 食品生鲜</h1>
                 <ul class="floor-list">
+                    {% for one_product in products4 %}
                     <li class="floor-item">
                         <a href="./list.html?categoryId=100021">
-                            <span class="floor-text">最爱零食</span>
-                            <img class="floor-img" src="static/image/floor/floor4-1.jpg" alt="最爱零食" />
+                            <span class="floor-text">{{ one_product.pname}}</span>
+                            <img class="floor-img" src="{{ one_product.images}}" alt="最爱零食" />
                         </a>
                     </li>
-                    <li class="floor-item">
-                        <a href="./list.html?categoryId=100022">
-                            <span class="floor-text">生鲜</span>
-                            <img class="floor-img" src="static/image/floor/floor4-2.jpg" alt="生鲜" />
-                        </a>
-                    </li>
-                    <li class="floor-item">
-                        <a href="./list.html?categoryId=100023">
-                            <span class="floor-text">半成品菜</span>
-                            <img class="floor-img" src="static/image/floor/floor4-3.jpg" alt="半成品菜" />
-                        </a>
-                    </li>
-                    <li class="floor-item">
-                        <a href="./list.html?categoryId=100024">
-                            <span class="floor-text">速冻专区</span>
-                            <img class="floor-img" src="static/image/floor/floor4-4.jpg" alt="速冻专区" />
-                        </a>
-                    </li>
-                    <li class="floor-item">
-                        <a href="./list.html?categoryId=100025">
-                            <span class="floor-text">进口牛奶</span>
-                            <img class="floor-img" src="static/image/floor/floor4-5.jpg" alt="进口牛奶" />
-                        </a>
-                    </li>
+                    {% endfor %}
+<!--                    <li class="floor-item">-->
+<!--                        <a href="./list.html?categoryId=100022">-->
+<!--                            <span class="floor-text">生鲜</span>-->
+<!--                            <img class="floor-img" src="static/image/floor/floor4-2.jpg" alt="生鲜" />-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="floor-item">-->
+<!--                        <a href="./list.html?categoryId=100023">-->
+<!--                            <span class="floor-text">半成品菜</span>-->
+<!--                            <img class="floor-img" src="static/image/floor/floor4-3.jpg" alt="半成品菜" />-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="floor-item">-->
+<!--                        <a href="./list.html?categoryId=100024">-->
+<!--                            <span class="floor-text">速冻专区</span>-->
+<!--                            <img class="floor-img" src="static/image/floor/floor4-4.jpg" alt="速冻专区" />-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="floor-item">-->
+<!--                        <a href="./list.html?categoryId=100025">-->
+<!--                            <span class="floor-text">进口牛奶</span>-->
+<!--                            <img class="floor-img" src="static/image/floor/floor4-5.jpg" alt="进口牛奶" />-->
+<!--                        </a>-->
+<!--                    </li>-->
                 </ul>
             </div>
             <div class="floor-wrap">
