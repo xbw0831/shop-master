@@ -62,11 +62,13 @@ def add_product():
         pname = request.form.get("pname")
         pDesc = request.form.get("pDesc")
         counts = request.form.get("counts")
+        uid= request.form.get("uid")
         old_price = request.form.get("old_price")
         new_price = request.form.get("new_price")
         print(pname)
         print(pDesc)
         print(counts)
+        print(uid)
         print(old_price)
         print(new_price)
 
@@ -88,8 +90,8 @@ def add_product():
         id = "%d" % random.randint(0,1000000000)
         # images_path = "/static/product_test/2.jpg"
         db = MysqlUtil() # 实例化数据库操作类
-        sql = "INSERT INTO product_temp(id,pname,old_price,new_price,counts,images) \
-               VALUES ('%s', '%s', '%s','%s','%s','%s')" % (id,pname,old_price,new_price,counts,images_path) # 插入数据的SQL语句
+        sql = "INSERT INTO product_temp(id,pname,old_price,new_price,counts,uid,images) \
+               VALUES ('%s', '%s', '%s','%s','%s','%s','%s')" % (id,pname,old_price,new_price,counts,uid,images_path) # 插入数据的SQL语句
         db.insert(sql)
         return redirect(url_for('bashboard'))
     else:

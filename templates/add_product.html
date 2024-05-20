@@ -56,6 +56,14 @@
                        placeholder="商品数量" aria-describedby="basic-addon1">
             </div>
             <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">UID</span>
+                <input type="number" max="100" maxlength="2" id="uid"
+                       onkeyup="this.value=this.value.replace(/\D/g,'')"
+                       onafterpaste="this.value=this.value.replace(/\D/g,'')"
+                       class="form-control must_input_product" name="uid"
+                       placeholder="UID" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">商品原价</span>
                 <input type="number" maxlength="8" id="old_price"
                        onkeyup="value=value.replace(/[^\d.]/g,'')"
